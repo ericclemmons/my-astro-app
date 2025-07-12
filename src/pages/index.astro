@@ -1,11 +1,19 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { readdir } from "node:fs/promises";
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const { BUCKET } = Astro.locals.runtime.env;
+console.info({ BUCKET });
+await BUCKET.put(`test-${Date.now()}.txt`, "Hello, world!");
+
+const localPath = ".wrangler/state/v3/r2/my-astro-app-bucket/blobs";
+const files = await readdir(localPath);
 ---
 
 <Layout>
-	<Welcome />
+  <h3>{localPath} ({files.length})</h3>
+  <p><i>These should've been remote, not local!</i></p>
+  <pre>{JSON.stringify(files, null, 2)}</pre>
+  <a href="/">Click to make another!</a>
 </Layout>

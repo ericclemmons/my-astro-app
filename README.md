@@ -1,3 +1,13 @@
+# Astro + Alchemy + Wrangler – Does Not Support Remote Bindings
+
+1. `pnpm install`
+1. `./alchemy.dev.ts`
+1. <https://localhost:4321>
+
+It'll tell you how many files have been written locally **instead of remote**.
+
+---
+
 # Astro Starter Kit: Basics
 
 ```sh
@@ -38,9 +48,9 @@ To learn more about the folder structure of an Astro project, refer to [our guid
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `pnpm install`         | Installs dependencies                            |
 | `pnpm dev`             | Starts local dev server at `localhost:4321`      |
 | `pnpm build`           | Build your production site to `./dist/`          |
 | `pnpm preview`         | Preview your build locally, before deploying     |

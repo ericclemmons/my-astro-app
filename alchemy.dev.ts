@@ -8,6 +8,7 @@ import { Astro, R2Bucket, Worker } from "alchemy/cloudflare";
 const app = await alchemy("my-astro-app");
 
 const BUCKET = await R2Bucket("my-astro-app-bucket", {
+  empty: true,
   dev: {
     remote: true,
   },
